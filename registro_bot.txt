@@ -1,0 +1,124 @@
+{"update_id":114984757,
+"message":{"message_id":11,"from":{"id":5953193231,"is_bot":false,"first_name":"Andre C.","username":"Andre_Cas1","language_code":"es"},"chat":{"id":5953193231,"first_name":"Andre C.","username":"Andre_Cas1","type":"private"},"date":1779425317,"text":"/menu","entities":[{"offset":0,"length":5,"type":"bot_command"}]}}
+>>> RECIBIDO DE TELEGRAM:
+
+>>> RECIBIDO DE TELEGRAM:
+{"update_id":114984758,
+"message":{"message_id":12,"from":{"id":5953193231,"is_bot":false,"first_name":"Andre C.","username":"Andre_Cas1","language_code":"es"},"chat":{"id":5953193231,"first_name":"Andre C.","username":"Andre_Cas1","type":"private"},"date":1779425408,"text":"/menu","entities":[{"offset":0,"length":5,"type":"bot_command"}]}}
+<<< INTENTO DE RESPUESTA:
+Respuesta API: {"ok":false,"error_code":400,"description":"Bad Request: inline keyboard button URL 'https://AQUI_TU_ENLACE_SHORTIG' is invalid: Wrong HTTP URL"}
+Error Servidor: 
+----------------------
+>>> RECIBIDO DE TELEGRAM:
+{"update_id":114984759,
+"message":{"message_id":13,"from":{"id":5953193231,"is_bot":false,"first_name":"Andre C.","username":"Andre_Cas1","language_code":"es"},"chat":{"id":5953193231,"first_name":"Andre C.","username":"Andre_Cas1","type":"private"},"date":1779425519,"text":"/menu","entities":[{"offset":0,"length":5,"type":"bot_command"}]}}
+<<< INTENTO DE RESPUESTA:
+Respuesta API: {"ok":true,"result":{"message_id":14,"from":{"id":8705875952,"is_bot":true,"first_name":"KiamTv","username":"KiamTv_bot"},"chat":{"id":5953193231,"first_name":"Andre C.","username":"Andre_Cas1","type":"private"},"date":1779425520,"text":"\u00a1Hola Andre C.! Soy tu asistente virtual de KiamTv \ud83e\udd16\n\n\u00bfEn qu\u00e9 te puedo ayudar hoy? Selecciona una opci\u00f3n \ud83d\udc47","reply_markup":{"inline_keyboard":[[{"text":"\ud83c\udf81 Activar 24 Horas","url":"https://catalogosco.top/KiamTv/activar.html"}],[{"text":"\ud83d\udce5 Descargar KiamTv (APK)","url":"https://google.com/"}],[{"text":"\ud83d\udc8e Comprar VIP","url":"https://t.me/KiamTv_bot?start=vip"}],[{"text":"\ud83d\udcfa Tutoriales","url":"https://t.me/KiamTv_bot?start=tutoriales"}]]}}}
+Error Servidor: 
+----------------------
+>>> RECIBIDO DE TELEGRAM:
+{"update_id":114984760,
+"message":{"message_id":6,"from":{"id":5953193231,"is_bot":false,"first_name":"Andre C.","username":"Andre_Cas1","language_code":"es"},"chat":{"id":-1003895943455,"title":"KiamTv Pro+","username":"KiamTv","type":"supergroup"},"date":1779425546,"text":"/menu","entities":[{"offset":0,"length":5,"type":"bot_command"}]}}
+<<< INTENTO DE RESPUESTA:
+Respuesta API: {"ok":true,"result":{"message_id":7,"from":{"id":8705875952,"is_bot":true,"first_name":"KiamTv","username":"KiamTv_bot"},"chat":{"id":-1003895943455,"title":"KiamTv Pro+","username":"KiamTv","type":"supergroup"},"date":1779425547,"text":"\u00a1Hola Andre C.! Soy tu asistente virtual de KiamTv \ud83e\udd16\n\n\u00bfEn qu\u00e9 te puedo ayudar hoy? Selecciona una opci\u00f3n \ud83d\udc47","reply_markup":{"inline_keyboard":[[{"text":"\ud83c\udf81 Activar 24 Horas","url":"https://catalogosco.top/KiamTv/activar.html"}],[{"text":"\ud83d\udce5 Descargar KiamTv (APK)","url":"https://google.com/"}],[{"text":"\ud83d\udc8e Comprar VIP","url":"https://t.me/KiamTv_bot?start=vip"}],[{"text":"\ud83d\udcfa Tutoriales","url":"https://t.me/KiamTv_bot?start=tutoriales"}]]}}}
+Error Servidor: 
+----------------------
+>>> RECIBIDO DE TELEGRAM:
+{"update_id":114984761,
+"message":{"message_id":15,"from":{"id":5953193231,"is_bot":false,"first_name":"Andre C.","username":"Andre_Cas1","language_code":"es"},"chat":{"id":5953193231,"first_name":"Andre C.","username":"Andre_Cas1","type":"private"},"date":1779425564,"text":"/start vip","entities":[{"offset":0,"length":6,"type":"bot_command"}]}}
+<<< INTENTO DE RESPUESTA:
+Respuesta API: {"ok":true,"result":{"message_id":16,"from":{"id":8705875952,"is_bot":true,"first_name":"KiamTv","username":"KiamTv_bot"},"chat":{"id":5953193231,"first_name":"Andre C.","username":"Andre_Cas1","type":"private"},"date":1779425564,"text":"\ud83d\udc8e PLANES VIP KIAMTV\n\nDisfruta del mejor contenido sin interrupciones.\n\n\ud83d\udd39 1 Mes: .XXX\n\ud83d\udd39 3 Meses: .YYY\n\nPuedes realizar tu pago seguro por Wompi aqu\u00ed:\n\ud83d\udc49 ENLACE DE WOMPI AQUI\n\nO si prefieres, escr\u00edbele directo a nuestro asesor de ventas:\n\ud83d\udc49 ENLACE DE TU WHATSAPP","entities":[{"offset":3,"length":17,"type":"bold"},{"offset":75,"length":6,"type":"bold"},{"offset":90,"length":8,"type":"bold"}]}}
+Error Servidor: 
+----------------------
+>>> RECIBIDO DE TELEGRAM:
+{"update_id":114984762,
+"message":{"message_id":17,"from":{"id":5953193231,"is_bot":false,"first_name":"Andre C.","username":"Andre_Cas1","language_code":"es"},"chat":{"id":5953193231,"first_name":"Andre C.","username":"Andre_Cas1","type":"private"},"date":1779425587,"text":"/start tutoriales","entities":[{"offset":0,"length":6,"type":"bot_command"}]}}
+<<< INTENTO DE RESPUESTA:
+Respuesta API: {"ok":true,"result":{"message_id":18,"from":{"id":8705875952,"is_bot":true,"first_name":"KiamTv","username":"KiamTv_bot"},"chat":{"id":5953193231,"first_name":"Andre C.","username":"Andre_Cas1","type":"private"},"date":1779425588,"text":"\ud83d\udcfa TUTORIALES KIAMTV\n\nAprende a instalar la App y sacar tu Direcci\u00f3n MAC f\u00e1cilmente.\n\n1\ufe0f\u20e3 Abre la app en tu TV.\n2\ufe0f\u20e3 En la pantalla principal ver\u00e1s un c\u00f3digo parecido a A1:B2:C3:D4...\n3\ufe0f\u20e3 Esa es tu MAC.\n\nMira este video explicativo:\n\ud83d\udc49 ENLACE A TU VIDEO DE YOUTUBE O TIKTOK","entities":[{"offset":3,"length":17,"type":"bold"}]}}
+Error Servidor: 
+----------------------
+>>> RECIBIDO DE TELEGRAM:
+{"update_id":114984763,
+"message":{"message_id":19,"from":{"id":5953193231,"is_bot":false,"first_name":"Andre C.","username":"Andre_Cas1","language_code":"es"},"chat":{"id":5953193231,"first_name":"Andre C.","username":"Andre_Cas1","type":"private"},"date":1779425612,"text":"/start tutoriales","entities":[{"offset":0,"length":6,"type":"bot_command"}]}}
+<<< INTENTO DE RESPUESTA:
+Respuesta API: {"ok":true,"result":{"message_id":20,"from":{"id":8705875952,"is_bot":true,"first_name":"KiamTv","username":"KiamTv_bot"},"chat":{"id":5953193231,"first_name":"Andre C.","username":"Andre_Cas1","type":"private"},"date":1779425613,"text":"\ud83d\udcfa TUTORIALES KIAMTV\n\nAprende a instalar la App y sacar tu Direcci\u00f3n MAC f\u00e1cilmente.\n\n1\ufe0f\u20e3 Abre la app en tu TV.\n2\ufe0f\u20e3 En la pantalla principal ver\u00e1s un c\u00f3digo parecido a A1:B2:C3:D4...\n3\ufe0f\u20e3 Esa es tu MAC.\n\nMira este video explicativo:\n\ud83d\udc49 ENLACE A TU VIDEO DE YOUTUBE O TIKTOK","entities":[{"offset":3,"length":17,"type":"bold"}]}}
+Error Servidor: 
+----------------------
+>>> RECIBIDO:
+{"update_id":114984764,
+"message":{"message_id":8,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":-1003895943455,"title":"KiamTv Pro+","username":"KiamTv","type":"supergroup"},"date":1779426545,"left_chat_participant":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"left_chat_member":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"}}}
+>>> RECIBIDO:
+{"update_id":114984765,
+"message":{"message_id":9,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":-1003895943455,"title":"KiamTv Pro+","username":"KiamTv","type":"supergroup"},"date":1779426560,"new_chat_participant":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"new_chat_member":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"new_chat_members":[{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"}]}}
+>>> RECIBIDO:
+{"update_id":114984766,
+"message":{"message_id":21,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":1356415814,"first_name":"Isroir","username":"Isroir","type":"private"},"date":1779426578,"text":"/start bienvenida","entities":[{"offset":0,"length":6,"type":"bot_command"}]}}
+>>> RECIBIDO:
+{"update_id":114984767,
+"message":{"message_id":11,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":-1003895943455,"title":"KiamTv Pro+","username":"KiamTv","type":"supergroup"},"date":1779427298,"left_chat_participant":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"left_chat_member":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"}}}
+>>> RECIBIDO:
+{"update_id":114984768,
+"message":{"message_id":12,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":-1003895943455,"title":"KiamTv Pro+","username":"KiamTv","type":"supergroup"},"date":1779427309,"new_chat_participant":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"new_chat_member":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"new_chat_members":[{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"}]}}
+>>> RECIBIDO:
+{"update_id":114984769,
+"message":{"message_id":22,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":1356415814,"first_name":"Isroir","username":"Isroir","type":"private"},"date":1779427318,"text":"/start bienvenida","entities":[{"offset":0,"length":6,"type":"bot_command"}]}}
+>>> RECIBIDO:
+{"update_id":114984770,
+"message":{"message_id":14,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":-1003895943455,"title":"KiamTv Pro+","username":"KiamTv","type":"supergroup"},"date":1779427423,"text":"/menu","entities":[{"offset":0,"length":5,"type":"bot_command"}]}}
+>>> RECIBIDO:
+{"update_id":114984771,
+"message":{"message_id":16,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":-1003895943455,"title":"KiamTv Pro+","username":"KiamTv","type":"supergroup"},"date":1779427533,"text":"no funciona"}}
+>>> RECIBIDO:
+{"update_id":114984772,
+"message":{"message_id":24,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":1356415814,"first_name":"Isroir","username":"Isroir","type":"private"},"date":1779427542,"text":"/start tutoriales","entities":[{"offset":0,"length":6,"type":"bot_command"}]}}
+>>> RECIBIDO:
+{"update_id":114984773,
+"message":{"message_id":26,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":1356415814,"first_name":"Isroir","username":"Isroir","type":"private"},"date":1779427991,"text":"pero no srive"}}
+>>> RECIBIDO:
+{"update_id":114984774,
+"message":{"message_id":18,"from":{"id":5953193231,"is_bot":false,"first_name":"Andre C.","username":"Andre_Cas1","language_code":"es"},"chat":{"id":-1003895943455,"title":"KiamTv Pro+","username":"KiamTv","type":"supergroup"},"date":1779428411,"text":"menu"}}
+>>> RECIBIDO:
+{"update_id":114984775,
+"message":{"message_id":27,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":1356415814,"first_name":"Isroir","username":"Isroir","type":"private"},"date":1779428479,"text":"/start tutoriales","entities":[{"offset":0,"length":6,"type":"bot_command"}]}}
+>>> RECIBIDO:
+{"update_id":114984776,
+"message":{"message_id":28,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":1356415814,"first_name":"Isroir","username":"Isroir","type":"private"},"date":1779428495,"text":"/start vip","entities":[{"offset":0,"length":6,"type":"bot_command"}]}}
+>>> RECIBIDO:
+{"update_id":114984777,
+"message":{"message_id":30,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":1356415814,"first_name":"Isroir","username":"Isroir","type":"private"},"date":1779428528,"text":"/menu","entities":[{"offset":0,"length":5,"type":"bot_command"}]}}
+>>> RECIBIDO:
+{"update_id":114984778,
+"callback_query":{"id":"5825761563656254998","from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"message":{"message_id":31,"from":{"id":8705875952,"is_bot":true,"first_name":"KiamTv","username":"KiamTv_bot"},"chat":{"id":1356415814,"first_name":"Isroir","username":"Isroir","type":"private"},"date":1779428529,"text":"\u00a1Hola Isroir! Soy tu asistente virtual \ud83e\udd16\n\nSelecciona una opci\u00f3n \ud83d\udc47","reply_markup":{"inline_keyboard":[[{"text":"\ud83c\udf81 Activar 24 Horas","url":"https://catalogosco.top/KiamTv/activar.html"}],[{"text":"\ud83d\udce5 Descargar App","url":"https://google.com/"}],[{"text":"\ud83d\udc8e Comprar VIP","url":"https://t.me/KiamTv_bot?start=vip"}],[{"text":"\ud83d\udcfa Tutoriales","callback_data":"mostrar_tutoriales"}]]}},"chat_instance":"913258333842440104","data":"mostrar_tutoriales"}}
+>>> RECIBIDO:
+{"update_id":114984779,
+"message":{"message_id":19,"from":{"id":5953193231,"is_bot":false,"first_name":"Andre C.","username":"Andre_Cas1","language_code":"es"},"chat":{"id":-1003895943455,"title":"KiamTv Pro+","username":"KiamTv","type":"supergroup"},"date":1779428871,"text":"/menu","entities":[{"offset":0,"length":5,"type":"bot_command"}]}}
+>>> RECIBIDO:
+{"update_id":114984780,
+"message":{"message_id":21,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":-1003895943455,"title":"KiamTv Pro+","username":"KiamTv","type":"supergroup"},"date":1779429640,"text":"/teclado","entities":[{"offset":0,"length":8,"type":"bot_command"}]}}
+>>> RECIBIDO:
+{"update_id":114984781,
+"message":{"message_id":33,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":1356415814,"first_name":"Isroir","username":"Isroir","type":"private"},"date":1779429665,"text":"/teclado","entities":[{"offset":0,"length":8,"type":"bot_command"}]}}
+>>> RECIBIDO:
+{"update_id":114984782,
+"message":{"message_id":23,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":-1003895943455,"title":"KiamTv Pro+","username":"KiamTv","type":"supergroup"},"date":1779429696,"text":"\ud83d\udcfa Tutoriales"}}
+>>> RECIBIDO:
+{"update_id":114984783,
+"message":{"message_id":25,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":-1003895943455,"title":"KiamTv Pro+","username":"KiamTv","type":"supergroup"},"date":1779429714,"text":"\ud83d\udce5 Descargar App"}}
+>>> RECIBIDO:
+{"update_id":114984784,
+"message":{"message_id":27,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":-1003895943455,"title":"KiamTv Pro+","username":"KiamTv","type":"supergroup"},"date":1779429728,"text":"\ud83c\udf81 Activar 24 Hrs"}}
+>>> RECIBIDO:
+{"update_id":114984785,
+"message":{"message_id":29,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":-1003895943455,"title":"KiamTv Pro+","username":"KiamTv","type":"supergroup"},"date":1779429736,"text":"\ud83d\udc8e Comprar VIP"}}
+>>> RECIBIDO:
+{"update_id":114984786,
+"message":{"message_id":35,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":1356415814,"first_name":"Isroir","username":"Isroir","type":"private"},"date":1779429740,"text":"/start vip","entities":[{"offset":0,"length":6,"type":"bot_command"}]}}
+>>> RECIBIDO:
+{"update_id":114984787,
+"message":{"message_id":31,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":-1003895943455,"title":"KiamTv Pro+","username":"KiamTv","type":"supergroup"},"date":1779429812,"left_chat_participant":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"left_chat_member":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"}}}
+>>> RECIBIDO:
+{"update_id":114984788,
+"message":{"message_id":32,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":-1003895943455,"title":"KiamTv Pro+","username":"KiamTv","type":"supergroup"},"date":1779429819,"new_chat_participant":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"new_chat_member":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"new_chat_members":[{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"}]}}
+>>> RECIBIDO:
+{"update_id":114984789,
+"message":{"message_id":37,"from":{"id":1356415814,"is_bot":false,"first_name":"Isroir","username":"Isroir","language_code":"es"},"chat":{"id":1356415814,"first_name":"Isroir","username":"Isroir","type":"private"},"date":1779429837,"text":"/start bienvenida","entities":[{"offset":0,"length":6,"type":"bot_command"}]}}

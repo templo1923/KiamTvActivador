@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KiamTv Player - Reproductor Multimedia</title>
+    <meta name="description" content="Gestión de listas M3U y reproductor streaming.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        body { background-color: #0a0a0a; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        a { transition: all 0.3s ease; }
+        
+        /* Navegación */
+        .navbar { background-color: rgba(18, 18, 18, 0.95) !important; backdrop-filter: blur(10px); border-bottom: 1px solid #222; padding: 15px 0; }
+        .navbar-brand { font-weight: 900; color: #00d2ff !important; font-size: 1.5rem; letter-spacing: 1px; }
+        .btn-activar-nav { background-color: transparent; border: 2px solid #00d2ff; color: #00d2ff; padding: 8px 22px; border-radius: 25px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px;}
+        .btn-activar-nav:hover { background-color: #00d2ff; color: #000; text-decoration: none; box-shadow: 0 0 15px rgba(0, 210, 255, 0.4); }
+
+        /* Portada (Hero) */
+        .hero-section {
+            background: linear-gradient(to bottom, rgba(10,10,10,0.3), #0a0a0a), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1920&q=80') center/cover;
+            padding: 160px 0 90px;
+            text-align: center;
+        }
+        .hero-section h1 { font-weight: 900; font-size: 3.8rem; text-shadow: 0 10px 20px rgba(0,0,0,0.8); letter-spacing: -1px; }
+        .hero-section p { font-size: 1.25rem; color: #d1d5db; max-width: 750px; margin: 0 auto 40px; font-weight: 300; }
+        
+        .btn-descarga-main { background-color: #00d2ff; color: #000; padding: 16px 35px; border-radius: 30px; font-weight: 800; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 5px 20px rgba(0, 210, 255, 0.3); border: none; display: inline-block; }
+        .btn-descarga-main:hover { background-color: #00e5ff; color: #000; transform: translateY(-3px); text-decoration: none; box-shadow: 0 8px 25px rgba(0, 210, 255, 0.5); }
+        
+        .btn-guia { background-color: transparent; border: 2px solid #555; color: #fff; padding: 14px 30px; border-radius: 30px; font-weight: 600; font-size: 1.1rem; display: inline-block; margin-left: 15px; }
+        .btn-guia:hover { border-color: #fff; color: #fff; text-decoration: none; background-color: rgba(255,255,255,0.05); }
+
+        /* Tutorial Instructivo */
+        .seccion-titulo { font-size: 2.5rem; font-weight: 800; text-transform: uppercase; color: #00d2ff; margin-bottom: 10px; letter-spacing: -0.5px; }
+        .tutorial-box { 
+            background: #141414; 
+            border: 1px solid #262626; 
+            border-radius: 16px; 
+            padding: 35px 30px; 
+            margin-bottom: 25px; 
+            text-align: left; 
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .tutorial-box:hover { transform: translateY(-5px); border-color: #444; }
+        
+        /* Número de fondo (El truco UX) */
+        .step-bg-number {
+            position: absolute;
+            right: -10px;
+            bottom: -25px;
+            font-size: 9rem;
+            color: rgba(255, 255, 255, 0.02);
+            font-weight: 900;
+            line-height: 1;
+            z-index: 0;
+            user-select: none;
+        }
+
+        .tutorial-content { position: relative; z-index: 1; }
+        .tutorial-icon { color: #00d2ff; font-size: 35px; float: left; margin-right: 20px; margin-top: 5px; }
+        .tutorial-text h4 { color: #fff; font-weight: 700; margin-bottom: 12px; font-size: 1.3rem; }
+        .tutorial-text p { color: #9ca3af; margin-bottom: 0; font-size: 0.95rem; line-height: 1.6; }
+        .tutorial-text a { color: #00d2ff; font-weight: 600; text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
+        .tutorial-text a:hover { border-bottom: 1px solid #00d2ff; }
+
+        /* Grilla de Descargas */
+        .dispositivos-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 950px; margin: 0 auto; }
+        .btn-dispositivo {
+            background-color: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 14px;
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            width: calc(33.333% - 15px);
+            min-width: 260px;
+            color: #fff;
+            text-decoration: none !important;
+            transition: all 0.3s ease;
+        }
+        .btn-dispositivo:hover { background-color: #1f1f1f; border-color: #00d2ff; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .btn-dispositivo i { font-size: 32px; width: 45px; text-align: center; margin-right: 15px; }
+        .btn-dispositivo h6 { margin: 0 0 4px 0; font-weight: 700; font-size: 1.05rem; }
+        .btn-dispositivo small { color: #888; font-size: 0.85rem; font-weight: 400; }
+        
+        .btn-disabled { background-color: #111; border-color: #1a1a1a; cursor: not-allowed; }
+        .btn-disabled h6, .btn-disabled i, .btn-disabled small { color: #444 !important; }
+        .btn-disabled:hover { transform: none; border-color: #1a1a1a; background-color: #111; box-shadow: none; }
+
+        /* Alertas y avisos */
+        .alerta-box { border-top: 1px solid #222; margin-top: 60px; padding-top: 40px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .codigo-tv { background-color: #222; color: #00d2ff; padding: 4px 12px; border-radius: 6px; font-weight: 800; letter-spacing: 2px; font-size: 1.2rem; }
+        
+        /* Footer */
+        footer { background-color: #050505; border-top: 1px solid #111; padding: 50px 0; margin-top: 80px; text-align: center; }
+        .footer-links a { color: #666; margin: 0 15px; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; }
+        .footer-links a:hover { color: #00d2ff; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 2.5rem; }
+            .btn-guia { margin-left: 0; margin-top: 15px; display: block; }
+            .btn-descarga-main { display: block; }
+        }
+    </style>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8185851819692995" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand" href="#"><i class="fas fa-play-circle mr-2"></i>KiamTv</a>
+            <a href="activar.html" class="btn-activar-nav"><i class="fas fa-key mr-2"></i>Activar MAC</a>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1>El reproductor definitivo</h1>
+            <p>Rendimiento superior para tus listas M3U. Configura tu dispositivo en minutos y organiza tu entretenimiento sin complicaciones.</p>
+            <div class="mt-4">
+                <a href="#descargas" class="btn-descarga-main"><i class="fas fa-download mr-2"></i> Instalar Ahora</a>
+                <a href="#tutorial" class="btn-guia"><i class="fas fa-book-open mr-2"></i> ¿Cómo funciona?</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="tutorial" class="container mt-5 pt-5 text-center">
+        <h2 class="seccion-titulo"><span style="color:#fff;">Guía de</span> Inicio</h2>
+        <p class="text-muted mb-5" style="font-size: 1.1rem;">Cuatro pasos sencillos para habilitar tu servicio.</p>
+        
+        <div class="row text-left">
+            <div class="col-md-6 mb-4">
+                <div class="tutorial-box">
+                    <div class="step-bg-number">1</div>
+                    <div class="tutorial-content">
+                        <i class="fas fa-cloud-download-alt tutorial-icon"></i>
+                        <div class="tutorial-text">
+                            <h4>Descarga la App</h4>
+                            <p>Desliza hasta la sección inferior. Selecciona el sistema operativo de tu dispositivo (Android TV, Celular o Fire OS) e instala nuestra aplicación oficial.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="tutorial-box">
+                    <div class="step-bg-number">2</div>
+                    <div class="tutorial-content">
+                        <i class="fas fa-tv tutorial-icon" style="color: #f9a826;"></i>
+                        <div class="tutorial-text">
+                            <h4>Encuentra tu MAC</h4>
+                            <p>Abre KiamTv Player en tu televisor. La pantalla principal te mostrará un identificador único llamado <strong>"Device MAC"</strong> (ej. A1:B2:C3...). Anota este código.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="tutorial-box">
+                    <div class="step-bg-number">3</div>
+                    <div class="tutorial-content">
+                        <i class="fas fa-unlock-alt tutorial-icon" style="color: #e91e63;"></i>
+                        <div class="tutorial-text">
+                            <h4>Activa el Dispositivo</h4>
+                            <p>Haz clic en el botón superior <strong><a href="activar.html">Activar MAC</a></strong>. Ingresa el código de tu televisor en el formulario para enlazar la pantalla a nuestra base de datos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="tutorial-box">
+                    <div class="step-bg-number">4</div>
+                    <div class="tutorial-content">
+                        <i class="fas fa-list-ul tutorial-icon" style="color: #3ddc84;"></i>
+                        <div class="tutorial-text">
+                            <h4>Carga tu Lista</h4>
+                            <p>Una vez activado el acceso, contacta a tu proveedor de servicios de TV, pídele tu lista M3U personal e ingrésala en la aplicación para empezar a ver.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="descargas" class="container mt-5 pt-5 text-center">
+        <h2 class="seccion-titulo"><span style="color:#fff;">Descargar</span> APP</h2>
+        <p class="text-muted mb-5 text-uppercase" style="letter-spacing: 1px; font-weight: 600;">Selecciona tu plataforma</p>
+        
+        <div class="dispositivos-grid">
+            <a href="https://tudominio.com/KiamTv-mobile.apk" class="btn-dispositivo">
+                <i class="fab fa-android" style="color: #3ddc84;"></i>
+                <div><h6>Móvil Android</h6><small>Versión táctil</small></div>
+            </a>
+            <a href="https://tudominio.com/KiamTv-mobile.apk" class="btn-dispositivo">
+                <i class="fas fa-tablet-alt" style="color: #3ddc84;"></i>
+                <div><h6>Tablet Android</h6><small>Interfaz HD</small></div>
+            </a>
+            <a href="https://tudominio.com/KiamTv-mobile.apk" class="btn-dispositivo">
+                <i class="fas fa-mobile-alt" style="color: #ff3333;"></i>
+                <div><h6>Huawei (HMS)</h6><small>AppGallery compatible</small></div>
+            </a>
+            <a href="https://tudominio.com/KiamTv-tvbox.apk" class="btn-dispositivo">
+                <i class="fas fa-box text-info"></i>
+                <div><h6>TV Box</h6><small>Smart Box genérico</small></div>
+            </a>
+            <a href="https://tudominio.com/KiamTv-tvbox.apk" class="btn-dispositivo">
+                <i class="fas fa-tv text-info"></i>
+                <div><h6>Android TV</h6><small>Sony, TCL, Hisense</small></div>
+            </a>
+            <a href="https://tudominio.com/KiamTv-tvbox.apk" class="btn-dispositivo">
+                <i class="fab fa-amazon text-warning"></i>
+                <div><h6>Fire TV Stick</h6><small>Amazon Devices</small></div>
+            </a>
+            <div class="btn-dispositivo btn-disabled">
+                <i class="fab fa-apple"></i>
+                <div><h6>iPhone / Apple TV</h6><small>No disponible</small></div>
+            </div>
+        </div>
+
+        <div class="alerta-box">
+            <h5 class="font-weight-bold text-white mb-3"><i class="fas fa-bolt text-warning mr-2"></i> Instalación en Fire TV / Android TV</h5>
+            <p class="text-muted mb-4" style="font-size: 1.05rem;">Abre la tienda de tu TV, instala la app <strong>Downloader</strong> (AFTVnews), ingresa el código <span class="codigo-tv">123456</span> y presiona "Ir".</p>
+            
+            <div class="alert text-left" style="background: rgba(220, 53, 69, 0.08); border: 1px solid #dc3545; color: #fff; border-radius: 12px; padding: 20px;">
+                <h6 class="font-weight-bold" style="color: #ff4d6d;"><i class="fas fa-exclamation-triangle mr-2"></i> Tip para usuarios de Xiaomi & Redmi</h6>
+                <p class="mb-0 text-muted" style="font-size: 0.9rem;">Si el sistema de seguridad de tu teléfono detecta un "Falso Positivo" y bloquea la instalación, presiona la opción <strong>"Instalar de todas formas"</strong>. Es totalmente seguro, estamos en proceso de certificación oficial.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links mb-3">
+                <a href="eula.html">Acuerdo de Licencia</a>
+                <a href="dmca.html">Reporte DMCA</a>
+                <a href="privacidad.html">Privacidad</a>
+            </div>
+            <p class="text-muted small">© 2026 KiamTv Systems. Todos los derechos reservados.<br>Software reproductor vacío. KiamTv no provee ni incluye ningún tipo de medio o contenido.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

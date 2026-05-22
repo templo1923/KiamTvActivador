@@ -1,0 +1,152 @@
+<?php
+// activar_freemium.php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// 1. Conexión usando PDO (Igual que en tu script de migración)
+try {
+    // Usamos la misma ruta relativa exacta que usas en tu panel
+    $db = new PDO("sqlite:api/.db.db");
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("<div class='alert alert-danger text-center'>Error de conexión a la BD: " . $e->getMessage() . "</div>");
+}
+
+$mensaje = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mac_address'])) {
+    // 2. Limpiar y formatear la MAC a XX:XX:XX:XX:XX:XX
+    $mac_limpia = strtoupper(preg_replace('/[^0-9A-F]/', '', $_POST['mac_address']));
+    $mac_formateada = implode(':', str_split($mac_limpia, 2));
+    
+    $whatsapp = trim($_POST['whatsapp'] ?? '');
+    
+    // 3. DATOS MAESTROS
+    $dns_id = 3; // <--- AQUÍ PONES EL DNS QUE QUIERAS (1, 3, 5, etc.)
+    $master_user = 'phxXE2JdU8a';
+    $master_pass = 'hd6L7e4D1m';
+    $expiracion = date('Y-m-d H:i:s', strtotime('+24 hours'));
+    
+    try {
+        // 4. Verificar si la MAC ya existe en la base de datos REAL
+        $stmt_check = $db->prepare("SELECT id FROM playlist WHERE mac_address = :mac");
+        $stmt_check->bindParam(':mac', $mac_formateada);
+        $stmt_check->execute();
+        $existe = $stmt_check->fetch(PDO::FETCH_ASSOC);
+
+        if ($existe) {
+            // 🟢 SI YA EXISTE: Actualizamos TODO, incluyendo el DNS
+            $query = "UPDATE playlist SET dns_id = :d, username = :u, password = :p, expiracion = :e, is_protected = 1, cliente_whatsapp = :w WHERE mac_address = :mac";
+            $stmt_update = $db->prepare($query);
+            
+            // PDO maneja los tipos de datos de forma automática y segura
+            $stmt_update->bindParam(':d', $dns_id); 
+            $stmt_update->bindParam(':u', $master_user);
+            $stmt_update->bindParam(':p', $master_pass);
+            $stmt_update->bindParam(':e', $expiracion);
+            $stmt_update->bindParam(':w', $whatsapp);
+            $stmt_update->bindParam(':mac', $mac_formateada);
+            
+            $stmt_update->execute();
+
+        } else {
+            // 🔵 SI ES NUEVA: La creamos de cero
+            $cliente_nombre = 'Free_' . substr(md5(uniqid()), 0, 5);
+            $query_insert = "INSERT INTO playlist (dns_id, mac_address, username, password, pin, cliente_nombre, cliente_whatsapp, expiracion, is_protected) VALUES (:d, :mac, :u, :p, '0000', :n, :w, :e, 1)";
+            $stmt_insert = $db->prepare($query_insert);
+            
+            $stmt_insert->bindParam(':d', $dns_id);
+            $stmt_insert->bindParam(':mac', $mac_formateada);
+            $stmt_insert->bindParam(':u', $master_user);
+            $stmt_insert->bindParam(':p', $master_pass);
+            $stmt_insert->bindParam(':n', $cliente_nombre);
+            $stmt_insert->bindParam(':w', $whatsapp);
+            $stmt_insert->bindParam(':e', $expiracion);
+            
+            $stmt_insert->execute();
+        }
+
+        $mensaje = '<div class="alert alert-success text-center"><strong>¡Activación Exitosa!</strong><br>Tienes 24 horas de TV Gratis. Por favor, reinicia la aplicación en tu televisor.</div>';
+
+    } catch (PDOException $e) {
+        // Si SQLite se queja por algo, te lo mostrará en rojo
+        $mensaje = "<div class='alert alert-danger text-center'><strong>Error en BD:</strong> " . $e->getMessage() . "</div>";
+    }
+}
+?>
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activar 24 Hrs Gratis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body { background-color: #121212; color: #fff; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+        .card { background-color: #1e1e1e; border: 1px solid #333; box-shadow: 0 4px 15px rgba(0,0,0,0.5); width: 100%; max-width: 400px; }
+        .form-control { background-color: #2a2a2a; color: #fff; border: 1px solid #444; }
+        .form-control:focus { background-color: #333; color: #fff; border-color: #17a2b8; box-shadow: none; }
+        .btn-telegram { background-color: #0088cc; color: white; border: none; }
+        .btn-telegram:hover { background-color: #0077b3; color: white; }
+    </style>
+</head>
+<body>
+
+<div class="container d-flex justify-content-center">
+    <div class="card p-4">
+        <div class="text-center mb-4">
+            <h2><i class="fas fa-tv text-info"></i> Activación Free</h2>
+            <p class="text-muted">Desbloquea 24 horas de entretenimiento</p>
+        </div>
+
+        <?= $mensaje ?>
+
+        <form method="post" id="activacionForm">
+            <div class="form-group">
+                <label>Tu MAC Address (Ver en la TV)</label>
+                <input type="text" class="form-control text-center" name="mac_address" id="mac" placeholder="A1:B2:C3:D4:E5:F6" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Tu WhatsApp</label>
+                <input type="number" class="form-control text-center" name="whatsapp" placeholder="Ej: 573001234567" required>
+            </div>
+
+            <div class="form-group text-center mt-4">
+                <p class="small text-warning"><i class="fas fa-exclamation-triangle"></i> Requisito Obligatorio:</p>
+                <a href="https://t.me/TuGrupoDeTelegramAqui" target="_blank" class="btn btn-telegram btn-block mb-3" id="btnTelegram" onclick="desbloquearBoton()">
+                    <i class="fab fa-telegram-plane"></i> Únete a nuestro Telegram
+                </a>
+            </div>
+
+            <button type="submit" class="btn btn-success btn-block btn-lg" id="btnActivar" disabled>
+                <i class="fas fa-check-circle"></i> Activar 24 Horas
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // 1. Auto-formato de MAC Address
+    document.getElementById("mac").addEventListener('input', function (e) {
+        let value = e.target.value.toUpperCase().replace(/[^0-9A-F]/g, '');
+        let formatted = '';
+        for (let i = 0; i < value.length && i < 12; i += 2) {
+            formatted += value.substr(i, 2);
+            if (i < value.length - 2 && i < 10) formatted += ':';
+        }
+        e.target.value = formatted;
+    });
+
+    // 2. Desbloquear botón al ir a Telegram
+    function desbloquearBoton() {
+        let btnActivar = document.getElementById('btnActivar');
+        btnActivar.disabled = false;
+        btnActivar.classList.add('btn-success');
+    }
+</script>
+
+</body>
+</html>

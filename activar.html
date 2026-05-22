@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activar 24 Hrs Gratis - KiamTv Player</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- AD SENSE COMENTADO TEMPORALMENTE MIENTRAS APRUEBAN LA WEB -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8185851819692995" crossorigin="anonymous"></script> -->
+
+    <style>
+        /* Fondo Premium con gradiente radial */
+        body { 
+            background: radial-gradient(circle at top right, #1a0b2e, #000000);
+            color: #fff; 
+            font-family: 'Poppins', sans-serif;
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .main-wrapper {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .glow-orb {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: #00d2ff;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.2;
+            top: -50px;
+            left: -50px;
+            z-index: 0;
+        }
+
+        .card-premium { 
+            background: rgba(25, 25, 30, 0.6); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            border-radius: 20px; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6); 
+            width: 100%; 
+            max-width: 450px; 
+            padding: 40px 30px;
+        }
+
+        .brand-title {
+            font-weight: 800;
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+
+        .form-control { 
+            background-color: rgba(0, 0, 0, 0.3) !important; 
+            color: #fff !important; 
+            border: 1px solid rgba(255,255,255,0.1); 
+            border-radius: 10px;
+            padding: 12px 20px;
+            height: auto;
+            font-weight: 400;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        .form-control:focus { 
+            border-color: #00d2ff; 
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2); 
+        }
+        .form-control::placeholder { color: rgba(255,255,255,0.3); }
+
+        label { font-size: 0.85rem; font-weight: 600; color: #a0a0a0; text-transform: uppercase; margin-bottom: 8px;}
+
+        .btn-telegram { 
+            background: rgba(0, 136, 204, 0.1); 
+            color: #0088cc; 
+            border: 1px solid #0088cc;
+            border-radius: 10px;
+            padding: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-telegram:hover { 
+            background: #0088cc; 
+            color: white; 
+            box-shadow: 0 10px 20px rgba(0, 136, 204, 0.3);
+        }
+
+        .btn-activar {
+            background: #333;
+            color: #888;
+            border-radius: 10px;
+            padding: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            transition: all 0.4s ease;
+        }
+        .btn-activar.btn-success {
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+            color: white;
+            box-shadow: 0 15px 30px rgba(0, 210, 255, 0.3);
+        }
+        .btn-activar.btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 210, 255, 0.5);
+        }
+
+        .alert-premium {
+            background: rgba(40, 167, 69, 0.1);
+            border: 1px solid rgba(40, 167, 69, 0.3);
+            color: #28a745;
+            border-radius: 15px;
+            padding: 20px;
+        }
+        .icon-success { font-size: 3rem; margin-bottom: 15px; text-shadow: 0 0 20px rgba(40, 167, 69, 0.5); }
+
+        #modal-instrucciones {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .instrucciones-caja {
+            background: #14141a;
+            border: 1px solid #00d2ff;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 450px;
+            width: 90%;
+            box-shadow: 0 20px 50px rgba(0, 210, 255, 0.2);
+            text-align: left;
+        }
+        .instrucciones-caja h3 {
+            color: #00d2ff;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .paso-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .paso-icon {
+            color: #00d2ff;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+        .paso-text {
+            color: #d1d5db;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* EL CSS DEL MODAL PUBLICIDAD ESTÁ COMENTADO 
+        #modal-publicidad {
+            display: none; 
+            position: fixed; 
+            top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.95); 
+            z-index: 9999; 
+            text-align: center;
+            overflow-y: auto;
+        }
+        .modal-content-premium {
+            background: #141414; 
+            padding: 30px; 
+            border-radius: 15px; 
+            width: 90%; 
+            max-width: 500px; 
+            margin: 50px auto; 
+            border: 1px solid #333; 
+            box-shadow: 0 10px 40px rgba(0,210,255,0.15);
+        }
+        */
+        
+        .footer-activacion {
+            position: relative; 
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            background: rgba(10, 10, 10, 0.7);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+        .footer-activacion a {
+            color: #a0a0a0;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+        .footer-activacion a:hover {
+            color: #00d2ff;
+        }
+        .footer-activacion p {
+            margin: 10px 0 0;
+            font-size: 0.75rem;
+            color: #666;
+        }
+        
+        @media (max-width: 600px) {
+            .footer-activacion a { margin: 0 8px; font-size: 0.75rem; }
+        }
+        
+    </style>
+</head>
+<body>
+
+<div id="modal-instrucciones">
+    <div class="instrucciones-caja">
+        <h3><i class="fas fa-rocket mr-2"></i>Guía de Activación</h3>
+        
+        <div class="paso-item">
+            <i class="fas fa-tv paso-icon"></i>
+            <div class="paso-text"><strong>1. Ingresa tu MAC:</strong> Escribe la Dirección MAC que aparece en la pantalla principal de KiamTv en tu App.</div>
+        </div>
+        
+        <div class="paso-item">
+            <i class="fab fa-telegram-plane paso-icon"></i>
+            <div class="paso-text"><strong>2. Únete a la comunidad:</strong> Haz clic en el botón de Telegram para desbloquear el sistema.</div>
+        </div>
+
+        <div class="paso-item">
+            <i class="fas fa-ad paso-icon text-warning"></i>
+            <div class="paso-text"><strong>3. Verificación Comercial:</strong> Al presionar Activar, verás publicidad de nuestros patrocinadores. Esto es necesario para mantener el servicio gratuito.</div>
+        </div>
+
+        <div class="paso-item">
+            <i class="fas fa-unlock-alt paso-icon text-success"></i>
+            <div class="paso-text"><strong>4. ¡Disfruta!:</strong> Una vez termines, tu dispositivo quedará habilitado por 24 horas con acceso premium.</div>
+        </div>
+
+        <button class="btn btn-activar btn-success btn-block mt-4" onclick="cerrarInstrucciones()">ENTENDIDO, COMENZAR</button>
+    </div>
+</div>
+
+<div class="glow-orb"></div>
+
+<div class="main-wrapper">
+    <div class="card-premium">
+        <div class="text-center mb-4">
+            <h2 class="brand-title"><i class="fas fa-play-circle"></i> KiamTv</h2>
+            <p class="text-muted" style="font-size: 0.9rem;">Portal de Activación de Hardware</p>
+        </div>
+
+        <div id="mensajeExito" style="display: none;" class="alert-premium text-center">
+            <i class="fas fa-check-circle icon-success"></i>
+            <h5 class="font-weight-bold text-white">¡Enlace Exitoso!</h5>
+            <p class="mb-0 text-light" style="font-size: 0.9rem;">Tu dispositivo tiene 24 horas de acceso desbloqueado.<br><br><strong class="text-warning">Por favor, reinicia la aplicación en tu TV.</strong></p>
+        </div>
+
+        <!-- FORMULARIO: Apunta a generar_enlace.php sin onsubmit -->
+        <form action="generar_enlace.php" method="POST" id="activacionForm">
+            <div class="form-group mb-4">
+                <label><i class="fas fa-tv mr-2"></i> Dirección MAC</label>
+                <input type="text" class="form-control text-center" name="mac_address" id="mac" placeholder="A1:B2:C3:D4:E5:F6" required autocomplete="off">
+            </div>
+            
+            <div class="form-group mb-4">
+                <label><i class="fab fa-whatsapp mr-2"></i> Número de Contacto con Indicativo De Pais</label>
+                <input type="text" class="form-control text-center" name="whatsapp" placeholder="Ej: 573001234567" required autocomplete="off">
+            </div>
+
+            <div class="form-group text-center mt-5 mb-4">
+                <p class="text-muted" style="font-size: 0.8rem; margin-bottom: 10px;">Paso de verificación requerido:</p>
+                <a href="https://t.me/TuGrupoDeTelegramAqui" target="_blank" class="btn btn-telegram btn-block" id="btnTelegram" onclick="desbloquearBoton()">
+                    <i class="fab fa-telegram-plane mr-2"></i> Únete a Telegram para continuar
+                </a>
+            </div>
+
+            <button type="submit" class="btn btn-activar btn-block" id="btnActivar" disabled onclick="mostrarCarga(this)">
+                <span id="btnText">Activar Sistema</span>
+            </button>
+        </form>
+    </div>
+</div>
+
+<footer class="footer-activacion">
+    <div>
+        <a href="https://catalogosco.top/KiamTv/"><i class="fas fa-home mr-1"></i> Inicio</a>
+    </div>
+    <p>© 2026 KiamTV. Todos los derechos reservados.</p>
+</footer>
+
+<!-- EL MODAL DE PUBLICIDAD ESTÁ COMENTADO TEMPORALMENTE 
+<div id="modal-publicidad">
+    ...
+</div>
+-->
+
+<script>
+    function cerrarInstrucciones() {
+        document.getElementById('modal-instrucciones').style.display = 'none';
+        document.getElementById('mac').focus(); 
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if(urlParams.get('status') === 'ok') {
+        document.getElementById('mensajeExito').style.display = 'block';
+        document.getElementById('activacionForm').style.display = 'none';
+        document.getElementById('modal-instrucciones').style.display = 'none'; 
+    }
+
+    document.getElementById("mac").addEventListener('input', function (e) {
+        let value = e.target.value.toUpperCase().replace(/[^0-9A-F]/g, '');
+        let formatted = '';
+        for (let i = 0; i < value.length && i < 12; i += 2) {
+            formatted += value.substr(i, 2);
+            if (i < value.length - 2 && i < 10) formatted += ':';
+        }
+        e.target.value = formatted;
+    });
+
+    function desbloquearBoton() {
+        let btnActivar = document.getElementById('btnActivar');
+        btnActivar.disabled = false;
+        btnActivar.classList.add('btn-success');
+    }
+
+    function mostrarCarga(btn) {
+        let inputMac = document.getElementById('mac').value;
+        if(inputMac !== '') {
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Redirigiendo...';
+            btn.style.opacity = '0.8';
+        }
+    }
+
+    /* EL JAVASCRIPT DE LOS 30 SEGUNDOS ESTÁ COMENTADO TEMPORALMENTE 
+    let adYaCargado = false;
+    ...
+    */
+</script>
+
+</body>
+</html>
